@@ -11,7 +11,7 @@
 
 ##### 회원가입 후 repository 생성
 
-<img>https://user-images.githubusercontent.com/59730002/75991472-d9cbad00-5f39-11ea-9abb-41d881c8144a.PNG<img>
+<img src="https://user-images.githubusercontent.com/59730002/75991472-d9cbad00-5f39-11ea-9abb-41d881c8144a.PNG">
 
 .gitignore : 설정 파일들을 올리지 않기 위해 설정해주는 파일
 
