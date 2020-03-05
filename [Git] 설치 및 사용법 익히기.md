@@ -38,8 +38,6 @@
 -  Git 폴더에 들어가면 .git이 생성 된 것 확인 
 
   - 보이지 않을 경우 확장명 숨기기 체크 해제
-  - Local Repository - 우리 컴퓨터
-  - GitHub Repository - remote Repository
 
 - ```
   cd Git-Tutorial
