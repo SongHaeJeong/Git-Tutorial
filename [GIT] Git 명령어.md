@@ -25,3 +25,15 @@ git commit --amend 입력 -> 수정모드 a 입력 -> commit message 수정 -> e
 
 ```
 
+#### Git Rebase 명령으로 특정 커밋 수정/삭제
+
+<img src ="https://user-images.githubusercontent.com/59730002/76063092-5b6b1b80-5fca-11ea-8757-11b8a93f7278.PNG">
+
+```
+git rebase -i HEAD~3 : 최근 세 개의 커밋메세지 확인 가능
+원하는 Command 명령어 선택 후 wq! 
+나와서 수정
+```
+
+
+
