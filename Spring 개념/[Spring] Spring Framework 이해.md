@@ -1,4 +1,4 @@
-# Spring Framework & Vue.js
+# Spring Framework 
 
 ##### 자바로 개발하는데 있어 유용하고 편리한 기능을 제공하는 프레임워크
 
@@ -59,9 +59,12 @@ class OwnerControllerTest{
 >- 필드
 >- Setter
 >
+
+
+
+>Spring reference에서 권장하는 방법은 생성자임
 >
-
-
+>좋은 이유 : 필수적으로 사용해야하는 레퍼런스 없이는 인스턴스 생성 못하게 강제
 
 
 
@@ -101,15 +104,125 @@ class OwnerControllerTest{
 
 #### AOP(Aspect Oriented Programming)
 
+> 흩어진 코드를 한곳으로 모아
+>
 > 공통의 관심 사항을 적용해서 발생하는 의존 관계의 복잡성과 코드 중복을 해소해줍니다.
 >
 > 각 클래스에서 공통 관심 사항을 구현한 모듈에 대한 의존관계를 갖기 보단, Aspect를 이용해 핵심 로직을 구현한 각 클래스에 공통 기능을 적용합니다.
 >
 > 간단한 설정만으로도 공통 기능을 여러 클래스에 적용할 수 있는 장점이 있으며 핵심 로직 코드를 수정하지 않고도 웹 애플리케이션의 보안, 로깅, 트랜잭션과 같은 공통 관심 사항을 AOP를 이용해 간단하게 적용할 수 있습니다.
 
+```
+## 흩어진 AAAA 와 BBBB ##
+class A{
+	method a(){
+		AAAA
+		오늘은 3월 8일.
+		BBBB
+	}
+	
+	method b(){
+		AAAA
+		저는 아침에 운동을 다녀와서 밥먹음.
+		BBBB
+	}	
+}
+class B{
+	method C(){
+		AAAA
+		점심
+		BBBB
+	}
+}
+
+==== 만약에 AAAA를 AA로 수정하게 되면 b, c메소드에 가서 다 바꿔줘야됨
+
+
+## 모아 놓은 AAAA와 BBBB ##
+class A {
+	method a(){
+		오늘은 3월 8일.
+	}
+	
+	method b () {
+		저는 아침에 운동을 다녀와서 밥먹음.
+		
+	}
+}
+
+class B{
+	method c(){
+		점심.
+	}
+}
+
+class AAAABBBB{
+	method aaaabbbb(JoinPoint point){
+		AAAA
+		point.execute()
+		BBBB
+	}
+}
+
+==== 이것처럼 공통으로 쓰는 기능들을 따로 뺌
+```
+
+>다양한 AOP 구현 방법
+>
+>- 컴파일 A.java ------(AOP)-----> A.class (AspectJ)
+>- 바이트코드 조작 A.java -> A.class --- (AOP) --->메모리(AspectJ)
+>- 프록시 패턴 (스프링 AOP)
+
+##### 프록시 패턴
+
+__기존의 코드를 건들지 않고 새 기능 추가하기__
+
+>#### AOP 적용 예제
+>
+>__@LogExecutionTIme 애노테이션 (어디에 적용할지 표시 해두는 용도)__
+>
+>```
+>@Target(Element Type METHOD)
+>@Retention(RetentionPolicy RUNTIME)
+>public @interface LogExecution TIme{
+>
+>}
+>```
+>
+>__실제 Aspect(@LogExectionTime 애노테이션 달린곳에 적용__
+>
+>```
+>@Component
+>@Aspect
+>public class LogAspect{
+>	Logger logger = LoggerFactory.getLogger(LogAspect.class);
+>	
+>	@Around("@annotation(LogExecutionTIme)")
+>	public object logExecutionTime(ProceddingJoinPoint joinPonint) throws Throable{
+>		StopWatch stopWatch = new StopWatch();
+>		stopWatch start();
+>		
+>		Object proceed = JoinPoint.proceed();
+>		
+>		stopWatch.stop();
+>		logger/info(stopWatch.prettyPrint());
+>		retrun proceed;
+>	
+>	}
+>}
+>```
+>
+>
+>
+>
+>
+>
 
 
 
+#### PSA
+
+>Portable Service Abstraction 잘 만든 인터페이스
 
 ##### DAO(Data Access Object)
 
@@ -167,3 +280,4 @@ class OwnerControllerTest{
 
 
 
+ 
