@@ -226,4 +226,3 @@ Advanced(고급) > CPU 구성 > SVM Mode(가상화 설정) - 활성화 해주면
 
 
 
-출처: https://ndb796.tistory.com/91?category=1009977 [안경잡이개발자]

@@ -100,4 +100,3 @@ __도커(Docker)의 개요__
 
 <https://www.youtube.com/watch?v=chnCcGCTyBg> 노마드 코더 유투브 참고!
 
-출처: https://ndb796.tistory.com/90?category=1009977 [안경잡이개발자]
