@@ -34,3 +34,4 @@ __프로세스의 상태(Process State)__
 >  - Suspended (stopped)
 >    - 외부적인 이유로 프로세스의 수행이 정지된 상태
 >    - 프로세스는 통째로 디스크에 swap out 된다
+>    - Swap out - 메모리에서 통째로 쫓겨남 Swap in : Swap out의 반대
