@@ -196,4 +196,56 @@
 >      print("정수값으로 변환된 숫자 -" int(value))
 >  ```
 >
->  
+>```python
+>try - catch문 예제
+>
+>######lab : 예외 발생, 예외처리###########################################
+>class AbnormalValueError(object):
+>    def __init__(self, message):
+>        self.message = message
+>        self.__tall = 160.5      #작년도 중학생 평균 키값
+>
+>    def getTall(self) :
+>        return self.__tall
+>
+>#올해 중학생 신체검사에서 입력 키값
+>middle_talls = [ 149, 155, 130, 165, 161, 170, 152, 163, 193, 168] 
+># 중학생 키 범위는 140~180 이며 이상치는 예외를 발생시켜서 , 예외처리할때 작년 평균 키로 보정합니다.
+>올해 중학생 평균 키를 계산해서 결과를 출력합니다.
+>
+>
+>class AbnormalValueError(object): 
+>    def __init__(self, message) :
+>        self.message = message 
+>        self.__tall = 160.5  
+>
+>    def get_Tall(self):
+>        return self.__tall
+>
+>    def check_Tall(self, tall):
+>#         print(tall)
+>        if  tall <= 140 or tall >= 180:            
+>            raise ValueError("비정상적인 키입니다.")
+>        return int(tall)
+>
+>middle_talls = [149, 155, 165, 161, 179, 152, 163,193, 168,2000]
+>
+>
+>abc = AbnormalValueError("키 검사")
+>avg_tall = 0
+>print(middle_talls) #키 수정 전
+>
+>for i in range(len(middle_talls)): 
+>    try :
+>        middle_tall = abc.check_Tall(middle_talls[i])       
+>        avg_tall += middle_tall
+>    except ValueError as a:
+>        print(a)
+>        middle_talls[i] = abc.get_Tall()
+>        avg_tall += abc.get_Tall()
+>    
+>    
+>print(middle_talls) #키 수정 후
+>print(avg_tall) # 전체의 합
+>print(avg_tall/ len(middle_talls)) # 평균
+>```
