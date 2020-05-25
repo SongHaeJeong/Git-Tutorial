@@ -131,3 +131,69 @@
 >   - 다형성 구현체 - overloading, overriding
 >   - overloading(중복 정의) - 동일 기능의 메서드 이름 재사용(인수의 타입, 순서, 개수 다르게 선언) , 사용자 인터페이스에 대한 통일, 단순화 => 가변파라미터와 키워드 가변 파라미터를 사용하여 동일 메서드를 여러개 정의할 필요가 없음
 >   - overriding - 부모에서 정의한 메서드를 상속받아서 자식 클래스에서 선언부는 동일하면서 메서드 동작을 변경
+
+
+
+#### 예외처리
+
+>- 예측 가능한 예외 : 발생 여부를 개발자가 사전에 인지할 수 있는 예외
+>
+>- 예측 불가능한 에외 : 매우 많은 파일을 처리할 때 문제가 발생할 수 있다.
+>
+>- __해결 방법__
+>
+>  - try - except문을 사용
+>
+>  ```python
+>  for i in range(10):
+>  	try:
+>  		print(10 / i)
+>  	except :
+>  		print("Not divided by 0 ")
+>  ```
+>
+>
+>
+>- __예외 에러 메세지__
+>
+>  - 내장 예외와 함께 사용하기 좋은 것이 예외 에러 메세지이다.
+>  - except문의 마지막에 'as 변수명'을 입력하고, 해당 변수명을 출력하면 된다. 에러 메시지는 파이썬 개발자들이 사전에 정의한 것으로, 특정한 에러를 빠르게 이하할 수 있도록 돕는다.
+>
+>  ```python
+>  for i in range(10):
+>  	try:
+>  		print(10 / i)
+>  	except ZeroDivisionError as e:
+>          print(e)
+>  		print("Not divided by 0 ")
+>  ```
+>
+>  
+>
+>- __try-exception-finally문__
+>
+>  - finally문은 try-except문 안에 있는 수행 코드가 아무런 문제 없이 종료되었을 경우 호출하는 코드.(예외 발생 여부와 상관없이 반드시 실행되는 코드이다)
+>
+>  ```python
+>  try :
+>  	예외 발생 가능 코드
+>  except 예외 타입:
+>  	예외 발생 시 실행되는 코드
+>  finally :
+>  	예외 발생 여부와 상관없이 실행되는 코드
+>  ```
+>
+>- __raise문__
+>
+>  - raise문은 try-except문과 달리 필요할 때 예외를 발생시키는 코드이다.
+>
+>  ```python
+>  while True:
+>  	value = input("변환할 정수값을 입력해주세요:")
+>      for digit in value:
+>          if digit not in "0123456789":
+>          raise ValueError("숫자값을 입력하지 않았습니다.")
+>      print("정수값으로 변환된 숫자 -" int(value))
+>  ```
+>
+>  
